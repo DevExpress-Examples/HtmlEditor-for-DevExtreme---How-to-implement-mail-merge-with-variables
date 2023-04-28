@@ -1,0 +1,64 @@
+<!-- default badges list -->
+![](https://img.shields.io/endpoint?url=https://codecentral.devexpress.com/api/v1/VersionRange/340354634/22.2.3%2B)
+[![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T1129779)
+[![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
+<!-- default badges end -->
+# HtmlEditor - How to implement mail merge with variables
+
+The HtmlEditor component supports [variables](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxHtmlEditor/Configuration/variables/). This repository shows how to implement mail merge with variables.
+
+The application contains HtmlEditor and two TextBoxes. You can type a value in the TextBoxes which is used to merge with the variable.
+
+![HtmlEditor - Mail merge](./HtmlEditor%20-%20Mail%20merge.png)
+
+The core implementation for mail merge can be found within the `replaceVariables(value, variablesMap)` utility method. The method accepts two parameters: HtmlEditor's [value](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxHtmlEditor/Configuration/#value) and an object map. These parameters are used to parse the value, then find and replace the variables based on the map object.
+
+```
+const DX_VARIABLE_CLASS = 'dx-variable';
+const DATA_VAR_VALUE_ATTR = 'data-var-value';
+
+/*
+value: dxHtmlEditor.value
+variableMap: object = Must contain `key: value` pairs of variable content.
+    {
+        'FirstName': 'John',
+        'LastName': 'Smith'
+    }
+*/
+let replaceVariables = (value, variablesMap) => {
+    const parser = new DOMParser();
+
+    replaceVariables = (value, variablesMap) => {
+        const doc = parser.parseFromString(value, 'text/html');
+        const variables = doc.querySelectorAll(`.${DX_VARIABLE_CLASS}`);
+
+        variables.forEach(variable => {
+            const variableValue = variablesMap[variable.getAttribute(DATA_VAR_VALUE_ATTR)];
+            variable.outerHTML = variableValue;
+        });
+
+        return doc.body.innerHTML.toString();
+    }
+
+    return replaceVariables(value, variablesMap);
+};
+```
+
+## Files to Review
+
+- **jQuery**
+    - [index.js](jQuery/src/index.js)
+- **Angular**
+    - [app.component.html](Angular/src/app/app.component.html)
+    - [app.component.ts](Angular/src/app/app.component.ts)
+- **Vue**
+    - [Home.vue](Vue/src/components/HomeContent.vue)
+- **React**
+    - [App.tsx](React/src/App.tsx)
+- **NetCore**    
+    - [Index.cshtml](ASP.NET%20Core/Views/Home/Index.cshtml)
+
+## Documentation
+
+- [Getting Started with HtmlEditor](https://js.devexpress.com/Documentation/Guide/UI_Components/HtmlEditor/Getting_Started_with_HtmlEditor/)
+- [HtmlEditor - Variables](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxHtmlEditor/Configuration/variables/)

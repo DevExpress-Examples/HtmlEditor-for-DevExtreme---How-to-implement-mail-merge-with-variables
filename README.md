@@ -3,7 +3,7 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T1162966)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-# HtmlEditor - How to implement mail merge with variables
+# HtmlEditor for DevExtreme - How to implement mail merge with variables
 
 The HtmlEditor component supports [variables](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxHtmlEditor/Configuration/variables/). This repository shows how to implement mail merge with variables.
 

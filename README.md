@@ -9,7 +9,7 @@ The HtmlEditor component supports [variables](https://js.devexpress.com/Document
 
 The application contains HtmlEditor and two TextBoxes. You can type a value in the TextBoxes which is used to merge with the variable.
 
-![HtmlEditor - Mail merge](./HtmlEditor%20-%20Mail%20merge.png)
+![HtmlEditor - Mail merge](/HtmlEditor%20-%20Mail%20merge.png)
 
 The core implementation for mail merge can be found within the `replaceVariables(value, variablesMap)` utility method. The method accepts two parameters: HtmlEditor's [value](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxHtmlEditor/Configuration/#value) and an object map. These parameters are used to parse the value, then find and replace the variables based on the map object.
 

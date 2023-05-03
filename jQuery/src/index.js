@@ -11,7 +11,7 @@ $(function () {
             'LastName': 'Smith'
         }
     */
-    let replaceVariables = (value, variablesMap) => {
+    const replaceVariables = (value, variablesMap) => {
         const parser = new DOMParser();
 
         replaceVariables = (value, variablesMap) => {

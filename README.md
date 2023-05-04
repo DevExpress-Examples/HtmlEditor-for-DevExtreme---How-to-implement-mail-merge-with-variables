@@ -25,7 +25,7 @@ variableMap: object = Must contain `key: value` pairs of variable content.
         'LastName': 'Smith'
     }
 */
-let replaceVariables = (value, variablesMap) => {
+const replaceVariables = (value, variablesMap) => {
     const parser = new DOMParser();
 
     replaceVariables = (value, variablesMap) => {

@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { DxButtonModule } from "devextreme-angular/ui/button"
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { DxTextBoxModule } from "devextreme-angular/ui/text-box";
+import { DxHtmlEditorModule } from "devextreme-angular/ui/html-editor";
 
 @NgModule({
   declarations: [
@@ -11,7 +13,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DxButtonModule
+    DxTextBoxModule,
+    DxHtmlEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

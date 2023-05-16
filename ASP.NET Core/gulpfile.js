@@ -23,7 +23,7 @@ let defaultScripts = [
     ],
     quillScripts = ["node_modules/devextreme-quill/dist/dx-quill.min.js",
         "node_modules/turndown/dist/turndown.js",
-        "node_modules/showdown/dist/showdown.js"
+        "node_modules/devextreme-showdown/dist/showdown.js"
     ],
     diagramScript = ["node_modules/devexpress-diagram/dist/dx-diagram.min.js"],
     ganttScript = ["node_modules/devexpress-gantt/dist/dx-gantt.min.js"],
@@ -56,9 +56,9 @@ scripts = [...defaultScripts, ...diagramScript, ...dxtScripts];
 styles = [...styles, ...diagramStyles];
 */
 
-/* // HtmlEditor 
-scripts = [...defaultScripts, ...quillScripts, dxtScripts];
-*/
+// HtmlEditor 
+scripts = [...defaultScripts, ...quillScripts, ...dxtScripts];
+
 
 /* // Export 
 scripts = [...exportScripts, ...scripts];

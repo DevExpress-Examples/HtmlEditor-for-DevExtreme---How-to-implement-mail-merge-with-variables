@@ -7,7 +7,7 @@
 
 The HtmlEditor component supports [variables](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxHtmlEditor/Configuration/variables/). This example demonstrates how to implement mail merge with variables.
 
-The application contains HtmlEditor and two TextBoxes. Type a value in the TextBoxes to see it merged with HtmlEditor text.
+The application contains HtmlEditor and two TextBoxes. Type values in the TextBoxes to see them merged with HtmlEditor text.
 
 ![HtmlEditor - Mail merge](/HtmlEditor%20-%20Mail%20merge.png)
 

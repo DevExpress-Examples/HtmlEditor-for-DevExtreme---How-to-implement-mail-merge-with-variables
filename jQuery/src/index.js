@@ -11,23 +11,18 @@ $(function () {
             'LastName': 'Smith'
         }
     */
-    const replaceVariables = (value, variablesMap) => {
-        const parser = new DOMParser();
+		const replaceVariables = (value, variablesMap) => {
+			const parser = new DOMParser();
+			const doc = parser.parseFromString(value, 'text/html');
+			const variables = doc.querySelectorAll(`.${DX_VARIABLE_CLASS}`);
+			
+			variables.forEach(variable => {
+				const variableValue = variablesMap[variable.getAttribute(DATA_VAR_VALUE_ATTR)];
+				variable.outerHTML = variableValue;
+			});
 
-        replaceVariables = (value, variablesMap) => {
-            const doc = parser.parseFromString(value, 'text/html');
-            const variables = doc.querySelectorAll(`.${DX_VARIABLE_CLASS}`);
-
-            variables.forEach(variable => {
-                const variableValue = variablesMap[variable.getAttribute(DATA_VAR_VALUE_ATTR)];
-                variable.outerHTML = variableValue;
-            });
-
-            return doc.body.innerHTML.toString();
-        }
-
-        return replaceVariables(value, variablesMap);
-    };
+			return doc.body.innerHTML.toString();
+		};
 
     const htmlEditor = $("#html-editor").dxHtmlEditor({
         toolbar: {

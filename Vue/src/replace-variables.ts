@@ -18,17 +18,13 @@ type Variable = {
 export function replaceVariables(value: string, variablesMap: Variable): string {
   const parser = new DOMParser();
 
-  let replaceVariables = (value: string, variablesMap: Variable) => {
     const doc = parser.parseFromString(value, 'text/html');
-    const variables = doc.querySelectorAll(`.${DX_VARIABLE_CLASS}`);
-
-    variables.forEach(variable => {
-      const variableValue = variablesMap[variable.getAttribute(DATA_VAR_VALUE_ATTR) || ''];
-      variable.outerHTML = variableValue;
-    });
-
-    return doc.body.innerHTML.toString();
-  }
-
-  return replaceVariables(value, variablesMap);
+  const variables = doc.querySelectorAll(`.${DX_VARIABLE_CLASS}`);
+	
+  variables.forEach(variable => {
+    const variableValue = variablesMap[variable.getAttribute(DATA_VAR_VALUE_ATTR) || ''];
+    variable.outerHTML = variableValue;
+  });
+	
+  return doc.body.innerHTML.toString();
 }

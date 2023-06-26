@@ -52,23 +52,19 @@ variableMap: object = Must contain `key: value` pairs of variable content
 		'LastName': 'Smith'
 	}
 */
+
 function replaceVariables (value, variablesMap) {
 	const parser = new DOMParser();
-
-	replaceVariables = (value, variablesMap) => {
-		const doc = parser.parseFromString(value, 'text/html');
-		const variables = doc.querySelectorAll(`.${DX_VARIABLE_CLASS}`);
-
-		variables.forEach(variable => {
-			const variableValue = variablesMap[variable.getAttribute(DATA_VAR_VALUE_ATTR)];
-			variable.outerHTML = variableValue;
-		});
-
-		return doc.body.innerHTML.toString();
-	}
-
-	return replaceVariables(value, variablesMap);
-};
+  const doc = parser.parseFromString(value, 'text/html');
+  const variables = doc.querySelectorAll(`.${DX_VARIABLE_CLASS}`);
+	
+  variables.forEach(variable => {
+    const variableValue = variablesMap[variable.getAttribute(DATA_VAR_VALUE_ATTR)];
+    variable.outerHTML = variableValue;
+  });
+	
+  return doc.body.innerHTML.toString();
+}
 
 function convertVariableOnClick(e) {
 	const htmlEditor = $("#editor").dxHtmlEditor("instance");
